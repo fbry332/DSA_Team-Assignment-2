@@ -46,6 +46,7 @@ public class PlaylistArray {
             }
         } while (pilihan != 5);
 
+        scanner.close();
     }
 
     private static void tampilkanSemuaLagu(Lagu[] playlist) {
