@@ -74,7 +74,27 @@ public class PlaylistArray {
         return jumlahLagu + 1;
     }
 
+    // fungsi untuk menghapus lagu
     private static void hapusLagu(Lagu[] playlist, String judul) {
+        boolean ditemukan = false;
+        // looping array playlist
+        for (int i = 0; i < playlist.length; i++) {
+            // cek apakah lagu ada di array
+            if (playlist[i] != null && playlist[i].getJudul().equalsIgnoreCase(judul)) {
+                ditemukan = true;
+                // geser semua lagu setelahnya ke kiri
+                for (int j = i; j < playlist.length - 1; j++) {
+                    playlist[j] = playlist[j + 1];
+                }
+                playlist[playlist.length - 1] = null;
+                System.out.println("Lagu berhasil dihapus.\n");
+                return;
+            }
+        }
+        // print jika lagu tidak ditemukan
+        if (!ditemukan) {
+            System.out.println("Lagu tidak ditemukan.\n");
+        }
     }
 
     private static void cariLagu(Lagu[] playlist, String judul) {
