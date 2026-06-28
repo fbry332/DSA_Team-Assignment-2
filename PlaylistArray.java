@@ -1,3 +1,11 @@
+// TUGAS KELOMPOK KE-2 DSA
+// Group 1
+// 1. GHEFIRA LA-AGNASRASYA GRACIANETTE (2902789852)
+// 2. DEVITA NUR ARDIANA (2902795685)
+// 3. LANTIB ISLAMI (2902789215)
+// 4. GREENITA MANALU (2902783621)
+// 5. FEBRY PRASETYA (2902787752)
+
 import java.util.Scanner;
 
 public class PlaylistArray {
@@ -95,7 +103,25 @@ public class PlaylistArray {
         return jumlahLagu;
     }
 
+    // fungsi untuk mencari lagu
     private static void cariLagu(Lagu[] playlist, String judul) {
+        // variable untuk menandai apakah lagu ditemukan
+        boolean ditemukan = false;
+        // looping array playlist
+        for (int i = 0; i < playlist.length; i++) {
+            // cek apakah lagu ada di array
+            if (playlist[i] != null && playlist[i].getJudul().equalsIgnoreCase(judul)) {
+                System.out.println("Lagu berhasil ditemukan");
+                playlist[i].tampilkanInfo();
+                ditemukan = true;
+                // hentikan pencarian setelah lagu ditemukan
+                break;
+            }
+        }
+        // print jika lagu tidak ditemukan
+        if (!ditemukan) {
+            System.out.println("Lagu tidak ditemukan\n");
+        }
     }
 
     private static void urutkanLaguBerdasarkanDurasi(Lagu[] playlist) {
